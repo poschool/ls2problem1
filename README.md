@@ -49,23 +49,6 @@ Try It
     Input validation is essential — Always check length before copying user input
     Modern defenses help — Stack canaries, ASLR, DEP make exploits harder (but not impossible)
 
-Vulnerable Code
-c
-
-void vulnerable(char *user_input) {
-    char buffer[8];
-    strcpy(buffer, user_input);  // ❌ NO BOUNDS CHECK
-}
-
-Safe Code
-c
-
-void safe(char *user_input) {
-    char buffer[8];
-    strncpy(buffer, user_input, sizeof(buffer) - 1);  // ✅ BOUNDS CHECKED
-    buffer[sizeof(buffer) - 1] = '\0';
-}
-
 🛠️ Technology
 
     Pure HTML5 + Vanilla JavaScript — No frameworks, no dependencies
